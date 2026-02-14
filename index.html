@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AR Farm - Quét Nhãn Pate</title>
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  </head>
+
+  <body style="margin: 0px; overflow: hidden;">
+    <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
+      
+      <a-assets>
+        <a-asset-item id="model-heo" src="MODELS/lowpoly_pig.glb"></a-asset-item>
+      </a-assets>
+
+      <a-marker preset="hiro">
+        
+        <a-entity 
+          gltf-model="#model-heo" 
+          scale="0.6 0.6 0.6" 
+          position="0 0 0"
+          animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
+        </a-entity>
+
+        <a-plane position="0 1.2 0.5" rotation="-90 0 0" width="2.2" height="1.2" color="#f8f9fa" opacity="0.9">
+            <a-text value="NGUON GOC: VIET-FARM\nKIEM DICH: BO CONG THUONG\nNGAY MO: 14/02/2026\nDIA CHI: BINH DUONG" 
+                    color="#d32f2f" align="center" width="4" wrap-count="20">
+            </a-text>
+        </a-plane>
+
+      </a-marker>
+
+      <a-entity camera></a-entity>
+    </a-scene>
